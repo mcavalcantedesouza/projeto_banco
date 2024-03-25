@@ -1,0 +1,51 @@
+# Arquivos e pastas que devem ser ignorados pelo Git
+
+# Arquivos de configuração específicos para sistemas operacionais
+.DS_Store
+Thumbs.db
+
+# Arquivos gerados por IDEs e editores de texto
+.idea/
+.vscode/
+
+# Dependências e módulos gerados por gerenciadores de pacotes
+node_modules/
+package-lock.json
+yarn.lock
+
+# Arquivos de build e saída
+dist/
+build/
+out/
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+
+# Arquivos de credenciais e chaves
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Arquivos de cache
+.cache/
+.cached/
+
+# Arquivos de backup
+*.bak
+*.backup
+*.swp
+*.swo
+
+# Arquivos de configuração de ferramentas
+.editorconfig
+.eslintcache
+.prettierignore
+.prettier.yaml
+.prettier.toml
+.prettierrc
