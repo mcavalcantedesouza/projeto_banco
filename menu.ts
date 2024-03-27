@@ -1,4 +1,6 @@
 import readlinesync = require('readline-sync');
+import { Conta } from './src/model/Conta';
+import { colors } from './src/util/Cores';
 
 
 /* função principal que executa o menu */
@@ -6,9 +8,13 @@ export function main() {
 
     let opcao: number;
 
+    let c1: Conta = new Conta(1, 123, 1, "Natasha", 1000);
+    c1.visualizar();
     
+
     while (true) {
 
+        console.log(colors.fg.cyanstrong)
         console.log("=========================================================");
         console.log("=========================================================\n");
         console.log("                       SSS   M   M ");
@@ -19,7 +25,7 @@ export function main() {
         console.log("                      S   S  M   M ");
         console.log("                       SSS   M   M ");
         console.log("\n\n                    SMART VAULT BANK");
-        console.log("             O seu dinheiro esta seguro conosco!");
+        console.log("             O seu dinheiro está seguro conosco!");
         console.log("=========================================================");
         console.log("                                                       ");
         console.log("              1 - Criar Conta                          ");
@@ -34,49 +40,85 @@ export function main() {
         console.log("                                                       ");
         console.log("=========================================================");
         console.log("=========================================================");
+        console.log(colors.reset);
 
         console.log("Entre com a opção desejada: ");
         opcao = readlinesync.questionInt("");
 
         if (opcao == 9) {
+            console.log(colors.fg.greenstrong)
             console.log("\nSMART VAULT BANK - O seu dinheiro está seguro conosco!");
             sobre();
+            console.log(colors.reset)
             process.exit(0);
         }
     
         switch (opcao) {
             case 1:
-                console.log("\nCriar Conta\n");
+                console.log(colors.fg.whitestrong, 
+                    "\nCriar Conta\n", colors.reset);
+
+                keyPress()
                 break;
             case 2:
-                console.log("\nListar todas as Contas\n");
+                console.log(colors.fg.whitestrong, 
+                    "\nListar todas as Contas\n", colors.reset);
+
+                keyPress()
                 break;
             case 3:
-                console.log("\nBuscar Conta por Numero\n");
+                console.log(colors.fg.whitestrong, 
+                    "\nBuscar Conta por Numero\n", colors.reset);
+
+                keyPress()
                 break;
             case 4:
-                console.log("\nAtualizar Dados da Conta\n");
+                console.log(colors.fg.whitestrong, 
+                    "\nAtualizar Dados da Conta\n", colors.reset);
+
+                keyPress()
                 break;
             case 5:
-                console.log("\nApagar Conta\n");
+                console.log(colors.fg.whitestrong, 
+                    "\nApagar Conta\n", colors.reset);
+
+                keyPress()
                 break;
             case 6:
-                console.log("\nSacar\n");
+                console.log(colors.fg.whitestrong, 
+                    "\nSacar\n", colors.reset);
+
+                keyPress()
                 break;
             case 7:
-                console.log("\nDepositar\n");
+                console.log(colors.fg.whitestrong, 
+                    "\nDepositar\n", colors.reset);
+
+                keyPress()
                 break;
             case 8:
-                console.log("\nTransferir valores entre Contas\n");
+                console.log(colors.fg.whitestrong, 
+                    "\nTransferir valores entre Contas\n", colors.reset);
+
+                keyPress()
                 break;
             default:
-                console.log("Opção inválida.");
+                console.log(colors.fg.whitestrong, 
+                    "Opção inválida.", colors.reset);
+
+                keyPress()
+                break;
         }
         
     }
 
 }
 
+function keyPress(): void {
+    console.log(colors.reset, "");
+    console.log("\nPressione enter para continuar...");
+    readlinesync.prompt();
+}
 
 /* Função com os meus dados */
 export function sobre(): void {
@@ -90,5 +132,7 @@ export function sobre(): void {
     console.log("=========================================================");
 
 }
+
+
 
 main()
