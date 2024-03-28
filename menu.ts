@@ -1,6 +1,8 @@
 import readlinesync = require('readline-sync');
 import { Conta } from './src/model/Conta';
 import { colors } from './src/util/Cores';
+import { ContaCorrente } from './src/model/ContaCorrente';
+import { ContaPoupanca } from './src/model/ContaPoupanca';
 
 
 /* função principal que executa o menu */
@@ -10,6 +12,8 @@ export function main() {
 
     let c1: Conta = new Conta(1, 123, 1, "Natasha", 1000);
     c1.visualizar();
+
+    
     
 
     while (true) {
