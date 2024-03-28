@@ -3,6 +3,7 @@ import { Conta } from './src/model/Conta';
 import { colors } from './src/util/Cores';
 import { ContaCorrente } from './src/model/ContaCorrente';
 import { ContaPoupanca } from './src/model/ContaPoupanca';
+import { ContaController } from './src/controller/ContaController';
 
 
 /* função principal que executa o menu */
@@ -10,9 +11,10 @@ export function main() {
 
     let opcao: number;
 
-    let c1: Conta = new Conta(1, 123, 1, "Natasha", 1000);
-    c1.visualizar();
+    let contas: ContaController = new ContaController();
 
+    let cc1: ContaCorrente = new ContaCorrente(2,456,1,"Michel",10000,2000);
+    contas.cadastrar(cc1);
     
     
 
@@ -68,6 +70,7 @@ export function main() {
                 console.log(colors.fg.whitestrong, 
                     "\nListar todas as Contas\n", colors.reset);
 
+                    contas.listarTodas();
                 keyPress()
                 break;
             case 3:
