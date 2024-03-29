@@ -1,6 +1,6 @@
 import readlinesync = require('readline-sync');
-import { Conta } from './src/model/Conta';
 import { colors } from './src/util/Cores';
+import { Conta } from './src/model/Conta';
 import { ContaCorrente } from './src/model/ContaCorrente';
 import { ContaPoupanca } from './src/model/ContaPoupanca';
 import { ContaController } from './src/controller/ContaController';
@@ -14,22 +14,23 @@ export function main() {
     let contas: ContaController = new ContaController();
 
     let cc1: ContaCorrente = new ContaCorrente(2,456,1,"Michel",10000,2000);
-    contas.cadastrar(cc1);
+    contas.cadastrar(cc1); 
+    let teste: ContaCorrente = new ContaCorrente(1,145,1,"teste", 40000,700);
     
     
 
     while (true) {
 
-        console.log(colors.fg.cyanstrong)
+        console.log(colors.fg.cyanstrong);
         console.log("=========================================================");
         console.log("=========================================================\n");
-        console.log("                       SSS   M   M ");
-        console.log("                      S   S  MM MM ");
-        console.log("                      S      M M M ");
-        console.log("                       SSS   M   M ");
-        console.log("                          S  M   M ");
-        console.log("                      S   S  M   M ");
-        console.log("                       SSS   M   M ");
+        console.log("                        SSS   M   M ");
+        console.log("                       S   S  MM MM ");
+        console.log("                       S      M M M ");
+        console.log("                        SSS   M   M ");
+        console.log("                           S  M   M ");
+        console.log("                       S   S  M   M ");
+        console.log("                        SSS   M   M ");
         console.log("\n\n                    SMART VAULT BANK");
         console.log("             O seu dinheiro está seguro conosco!");
         console.log("=========================================================");
@@ -52,10 +53,10 @@ export function main() {
         opcao = readlinesync.questionInt("");
 
         if (opcao == 9) {
-            console.log(colors.fg.greenstrong)
+            console.log(colors.fg.greenstrong);
             console.log("\nSMART VAULT BANK - O seu dinheiro está seguro conosco!");
             sobre();
-            console.log(colors.reset)
+            console.log(colors.reset);
             process.exit(0);
         }
     
@@ -63,14 +64,15 @@ export function main() {
             case 1:
                 console.log(colors.fg.whitestrong, 
                     "\nCriar Conta\n", colors.reset);
+                    
 
                 keyPress()
                 break;
             case 2:
                 console.log(colors.fg.whitestrong, 
                     "\nListar todas as Contas\n", colors.reset);
-
                     contas.listarTodas();
+
                 keyPress()
                 break;
             case 3:

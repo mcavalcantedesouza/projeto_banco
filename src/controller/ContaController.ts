@@ -20,19 +20,23 @@ export class ContaController implements ContaRepository{
         console.log("A Conta foi adicionada!");
     }
     atualizar(conta: Conta): void {
-        throw new Error("Method not implemented.");
+        
+        
     }
     deletar(numero: number): void {
-        throw new Error("Method not implemented.");
+        // this.listaContas.splice(this.listaContas.indexOf(numero));
+        // console.log("A Conta foi deletada!");
+
     }
     sacar(numero: number, valor: number): void {
-        throw new Error("Method not implemented.");
+
+        
     }
     depositar(numbero: number, valor: number): void {
-        throw new Error("Method not implemented.");
+        
     }
     transferir(numeroOrigem: number, numeroDestino: number, valor: number): void {
-        throw new Error("Method not implemented.");
+        
     }
 
 }

@@ -1,11 +1,12 @@
 import { Conta } from "./Conta";
 
 export class ContaPoupanca extends Conta {
+
     private _aniversario: number;
 
 
 	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number, aniversario: number) {
-        super(numero, agencia, tipo, titular, saldo)
+        super(numero, agencia, tipo, titular, saldo);
 		this._aniversario = aniversario;
 	}
 
@@ -25,6 +26,9 @@ export class ContaPoupanca extends Conta {
 	public set aniversario(value: number) {
 		this._aniversario = value;
 	}
+
+
+	
 
     public visualizar(): void {
         super.visualizar();
