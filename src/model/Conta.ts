@@ -9,6 +9,7 @@ export abstract class Conta{
     private _saldo: number;
 
     //Método Construtor - Instanciar (criar) um novo Objeto da Classe Conta
+
 	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number) {
 		this._numero = numero;
 		this._agencia = agencia;
@@ -16,7 +17,7 @@ export abstract class Conta{
 		this._titular = titular;
 		this._saldo = saldo;
 	}
-
+	
 
     /**
      * Getter numero
@@ -97,6 +98,7 @@ export abstract class Conta{
 	public set saldo(value: number) {
 		this._saldo = value;
 	}
+
 
     public sacar(valor: number): boolean {
 

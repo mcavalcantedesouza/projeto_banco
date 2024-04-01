@@ -5,8 +5,8 @@ export class ContaCorrente extends Conta{
     private _limite: number;
 
 
-	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number,limite: number) {
-        super(numero, agencia, tipo, titular, saldo)
+	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number, limite: number) {
+        super(numero, agencia, tipo, titular, saldo);
 		this._limite = limite;
 	}
 
@@ -26,6 +26,7 @@ export class ContaCorrente extends Conta{
 	public set limite(value: number) {
 		this._limite = value;
 	}
+
 
     public sacar(valor: number): boolean {
         if ((this.saldo + this._limite) < valor) {
