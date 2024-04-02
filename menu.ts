@@ -1,11 +1,8 @@
 import readlinesync = require('readline-sync');
 import { colors } from './src/util/Cores';
-import { Conta } from './src/model/Conta';
 import { ContaCorrente } from './src/model/ContaCorrente';
 import { ContaPoupanca } from './src/model/ContaPoupanca';
 import { ContaController } from './src/controller/ContaController';
-import { read } from 'fs';
-
 
 /* função principal que executa o menu */
 export function main() {
@@ -14,7 +11,7 @@ export function main() {
     let contas: ContaController = new ContaController();
 
     /* Variaveis Auxiliares */
-    let opcao, numero, agencia, tipo, saldo, limite, aniversario: number;
+    let opcao, numero, agencia, tipo, saldo, limite, aniversario, valor, numeroDestino: number;
     let titular: string;
     const tiposContas = ['Conta Corrente', 'Conta Poupanca'];
 
@@ -60,7 +57,8 @@ export function main() {
         console.log("              6 - Sacar                                ");
         console.log("              7 - Depositar                            ");
         console.log("              8 - Transferir valores entre Contas      ");
-        console.log("              9 - Sair                                 ");
+        console.log("              9 - Buscar Conta por titular             ");
+        console.log("              0 - Sair                                 ");
         console.log("                                                       ");
         console.log("=========================================================");
         console.log("=========================================================");
@@ -69,7 +67,7 @@ export function main() {
         console.log("Entre com a opção desejada: ");
         opcao = readlinesync.questionInt("");
 
-        if (opcao == 9) {
+        if (opcao == 0) {
             console.log(colors.fg.greenstrong);
             console.log("\nSMART VAULT BANK - O seu dinheiro está seguro conosco!");
             sobre();
@@ -177,6 +175,15 @@ export function main() {
                 console.log(colors.fg.whitestrong, 
                     "\nSacar\n", colors.reset);
 
+                    console.log("Digite o numero da Conta: ");
+                    numero = readlinesync.questionInt("");
+
+                    console.log("Digite o valor do Saque: ");
+                    valor = readlinesync.questionFloat("");
+
+                    contas.sacar(numero, valor);
+
+
                 keyPress()
                 break;
             case 7:
@@ -187,10 +194,32 @@ export function main() {
                 break;
             case 8:
                 console.log(colors.fg.whitestrong, 
-                    "\nTransferir valores entre Contas\n", colors.reset);
+                "\nTransferir valores entre Contas\n", colors.reset);
+
+                console.log("Digite o numero da Conta de Origem: ");
+                numero = readlinesync.questionInt("");
+
+                console.log("Digite o número da Conta de Destino: ");
+                numeroDestino = readlinesync.questionFloat("");
+
+                console.log("Digite o valor do Depósito: ");
+                valor = readlinesync.questionFloat("");
+
+                contas.transferir(numero, numeroDestino, valor);
 
                 keyPress()
                 break;
+            case 9:
+                console.log(colors.fg.whitestrong, 
+                    "\nConsultar conta por titular\n", colors.reset);
+
+                    console.log("Digite o Nome do Titular: ");
+                    titular = readlinesync.question("");
+
+                    contas.procurarPorTitular(titular);
+
+                break;
+
             default:
                 console.log(colors.fg.whitestrong, 
                     "Opção inválida.", colors.reset);
